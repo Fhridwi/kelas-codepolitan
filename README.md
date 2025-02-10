@@ -24,8 +24,6 @@ Instal dependensi dengan Composer: Setelah berada di dalam folder proyek, jalank
 composer install
 Jalankan aplikasi: Setelah semua dependensi berhasil diinstal, kamu dapat menjalankan aplikasi dengan perintah berikut (jika menggunakan Laravel):
 
-2.**Install Dependensi**
-```bash
 php artisan serve
 
 ## About Laravel

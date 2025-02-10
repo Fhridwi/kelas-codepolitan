@@ -7,6 +7,30 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+### Prasyarat
+
+Pastikan kamu sudah menginstal [Composer](https://getcomposer.org/) di komputer kamu.
+
+### Langkah-langkah:
+
+1. **Clone repositori ini:**
+   ```bash
+   git clone https://github.com/username/repository.git
+   cd repository
+Instal dependensi dengan Composer: Setelah berada di dalam folder proyek, jalankan perintah berikut untuk menginstal semua dependensi yang tercatat di file composer.json:
+
+bash
+Copy
+Edit
+composer install
+Jalankan aplikasi: Setelah semua dependensi berhasil diinstal, kamu dapat menjalankan aplikasi dengan perintah berikut (jika menggunakan Laravel):
+
+bash
+Copy
+Edit
+php artisan serve
+Itu saja! Sekarang kamu bisa mulai bekerja dengan proyek ini.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

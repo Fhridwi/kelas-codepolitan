@@ -15,7 +15,8 @@ Pastikan kamu sudah menginstal [Composer](https://getcomposer.org/) di komputer 
 
 1. **Clone repositori ini:**
    ```bash
-   git clone https://github.com/username/repository.git
+   git clone https://github.com/Fhridwi/kelas-codepolitan.git
+   ```bash
    cd repository
 Instal dependensi dengan Composer: Setelah berada di dalam folder proyek, jalankan perintah berikut untuk menginstal semua dependensi yang tercatat di file composer.json:
 

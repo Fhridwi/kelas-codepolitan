@@ -19,15 +19,13 @@ Pastikan kamu sudah menginstal [Composer](https://getcomposer.org/) di komputer 
    cd kelas-codepolitan
 Instal dependensi dengan Composer: Setelah berada di dalam folder proyek, jalankan perintah berikut untuk menginstal semua dependensi yang tercatat di file composer.json:
 
-bash
-Copy
-Edit
+2.**Install Dependensi**
+```bash
 composer install
 Jalankan aplikasi: Setelah semua dependensi berhasil diinstal, kamu dapat menjalankan aplikasi dengan perintah berikut (jika menggunakan Laravel):
 
-bash
-Copy
-Edit
+2.**Install Dependensi**
+```bash
 php artisan serve
 
 ## About Laravel

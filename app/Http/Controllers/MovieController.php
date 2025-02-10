@@ -19,6 +19,13 @@ class MovieController extends Controller
         }
     }
 
+    // public static function middleware() 
+    // {
+    //     return [
+    //         
+    //     ];
+    // }
+
     public function index()
     {
         return $this->movies;
@@ -34,11 +41,26 @@ class MovieController extends Controller
         $this->movies[] = [
             'title'    => request('title'),
             'year'     => request('year'),
-            'genre'   => request('genre')
+            'genre'    => request('genre')
         ];
 
         return $this->movies;
     }
 
-    // PUT DAN PATCH ATAU UPDATE DATA
+    public function update(Request $request, $id) 
+    {
+        // $this->movies[$id]['title'] = request('title');
+        // $this->movies[$id]['year'] = request('year');
+        // $this->movies[$id]['genre'] = request('title');
+
+        // return $this->movies[$id];
+
+        return $request->all();
+    }
+
+    public function destroy($id) 
+    {
+        unset($this->movies[$id]);
+        return $this->movies;
+    }
 }

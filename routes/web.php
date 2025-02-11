@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Response;
 Route::get('/', [MovieController::class, 'index']);
 
 // Route khusus movie dengan middleware
-Route::middleware(['isAuth', 'isMember'])->group(function () {
+// Route::middleware(['isAuth', 'isMember'])->group(function () {
     Route::get('/movie/{id}', [MovieController::class, 'show']);
-});
+// });
 
 // CRUD Movie
 Route::post('/movie', [MovieController::class, 'store']);

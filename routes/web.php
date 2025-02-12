@@ -64,7 +64,20 @@ Route::middleware('cache.headers:public;max_age=2628000')->group(function()
             ['title' => 'Interstellar', 'year' => '2014'],
             ['title' => 'Parasite', 'year' => '2019'],
             ['title' => 'The Matrix', 'year' => '1999'],
+            ['title' => 'Gladiator', 'year' => '2000'],
+            ['title' => 'X-Men', 'year' => '2000'],
+            ['title' => 'Mission: Impossible 2', 'year' => '2000'],
+            ['title' => 'Cast Away', 'year' => '2000'],
+            ['title' => 'Crouching Tiger, Hidden Dragon', 'year' => '2000'],
+            ['title' => 'The Patriot', 'year' => '2000'],
+            ['title' => 'American Psycho', 'year' => '2000'],
+            ['title' => 'Requiem for a Dream', 'year' => '2000'],
+            ['title' => 'Almost Famous', 'year' => '2000'],
+            ['title' => 'A Beautiful Mind', 'year' => '2001'],
+            ['title' => 'Shrek', 'year' => '2001'],
+            ['title' => 'Harry Potter and the Sorcerer\'s Stone', 'year' => '2001']
         ];
+        
        
 
         return view('home', compact('dataMovies'));

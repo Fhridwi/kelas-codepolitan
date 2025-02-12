@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Response;
 
 // Menampilkan semua data film
 Route::get('/', [MovieController::class, 'index']);
+Route::get('/movie', [MovieController::class, 'index']);
 
 
 
@@ -80,8 +81,8 @@ Route::middleware('cache.headers:public;max_age=2628000')->group(function()
         
        
 
-        return view('home', compact('dataMovies'));
-    })->name('home');
+        return view('home')  ;
+    });
 
     Route::get('/dashboard', function() {
         $user = 'admin';

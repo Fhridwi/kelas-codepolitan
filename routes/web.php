@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Response;
 // Menampilkan semua data film
 Route::get('/', [MovieController::class, 'index']);
 
+
+
 // Route khusus movie dengan middleware
 // Route::middleware(['isAuth', 'isMember'])->group(function () {
     Route::get('/movie/{id}', [MovieController::class, 'show']);
@@ -51,7 +53,22 @@ Route::get('/cache-control', function() {
 Route::middleware('cache.headers:public;max_age=2628000')->group(function()
 {
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', function() {
+
+        $dataMovies = [
+            ['title' => 'PaddlePop', 'year' => '2002'],
+            ['title' => 'Spider-Man', 'year' => '2002'],
+            ['title' => 'The Dark Knight', 'year' => '2008'],
+            ['title' => 'Inception', 'year' => '2010'],
+            ['title' => 'Avengers: Endgame', 'year' => '2019'],
+            ['title' => 'Interstellar', 'year' => '2014'],
+            ['title' => 'Parasite', 'year' => '2019'],
+            ['title' => 'The Matrix', 'year' => '1999'],
+        ];
+       
+
+        return view('home', compact('dataMovies'));
+    })->name('home');
 
     Route::get('/dashboard', function() {
         $user = 'admin';

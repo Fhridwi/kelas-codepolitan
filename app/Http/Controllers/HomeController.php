@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public $movies;
+    
     public function index() 
     {
-        return response(request()->all());
+        $movies = $this->movies;
+
+        return view('movies.index', compact('movies'))->with([
+            'title' => 'List of Movies'
+        ]);
     }
 }

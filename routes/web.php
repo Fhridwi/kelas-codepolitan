@@ -9,18 +9,19 @@ use Illuminate\Support\Facades\Response;
 // Menampilkan semua data film
 Route::get('/', [MovieController::class, 'index']);
 Route::get('/movie', [MovieController::class, 'index']);
+Route::get('/create', [MovieController::class, 'create'])->name('create');
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('show');
 
+// CRUD Movie
+Route::post('/movie/', [MovieController::class, 'store'])->name('store');
+Route::match(['put', 'patch'], '/movie/{id}', [MovieController::class, 'update']);
+Route::delete('/movie/{id}', [MovieController::class, 'destroy']);
 
 
 // Route khusus movie dengan middleware
 // Route::middleware(['isAuth', 'isMember'])->group(function () {
-    Route::get('/movie/{id}', [MovieController::class, 'show']);
 // });
 
-// CRUD Movie
-Route::post('/movie', [MovieController::class, 'store']);
-Route::match(['put', 'patch'], '/movie/{id}', [MovieController::class, 'update']);
-Route::delete('/movie/{id}', [MovieController::class, 'destroy']);
 
 // Halaman Pricing
 Route::get('/pricing', function () {

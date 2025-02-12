@@ -17,7 +17,7 @@ class MovieController extends Controller
                 'release_year' => '2008',
                 'actors' => ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],
                 'category' => 'Action, Crime, Drama',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/a/a7/Dark_Knight.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg'
             ],
             [
                 'title' => 'Inception',
@@ -25,7 +25,7 @@ class MovieController extends Controller
                 'release_year' => '2010',
                 'actors' => ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Ellen Page'],
                 'category' => 'Action, Adventure, Sci-Fi',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/7/7f/Inception_ver3.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg'
             ],
             [
                 'title' => 'Avengers: Endgame',
@@ -33,7 +33,7 @@ class MovieController extends Controller
                 'release_year' => '2019',
                 'actors' => ['Robert Downey Jr.', 'Chris Evans', 'Mark Ruffalo'],
                 'category' => 'Action, Adventure, Drama',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg'
             ],
             [
                 'title' => 'Parasite',
@@ -41,7 +41,7 @@ class MovieController extends Controller
                 'release_year' => '2019',
                 'actors' => ['Song Kang-ho', 'Lee Sun-kyun', 'Cho Yeo-jeong'],
                 'category' => 'Comedy, Drama, Thriller',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_poster.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg'
             ],
             [
                 'title' => 'The Matrix',
@@ -49,7 +49,7 @@ class MovieController extends Controller
                 'release_year' => '1999',
                 'actors' => ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss'],
                 'category' => 'Action, Sci-Fi',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg'
             ],
             [
                 'title' => 'Gladiator',
@@ -57,7 +57,7 @@ class MovieController extends Controller
                 'release_year' => '2000',
                 'actors' => ['Russell Crowe', 'Joaquin Phoenix', 'Connie Nielsen'],
                 'category' => 'Action, Drama, Adventure',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/8/8d/Gladiator_ver1.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg'
             ],
             [
                 'title' => 'Shrek',
@@ -65,7 +65,7 @@ class MovieController extends Controller
                 'release_year' => '2001',
                 'actors' => ['Mike Myers', 'Eddie Murphy', 'Cameron Diaz'],
                 'category' => 'Animation, Adventure, Comedy',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/d/d6/Shrek_poster.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg'
             ],
             [
                 'title' => 'The Lion King',
@@ -73,7 +73,7 @@ class MovieController extends Controller
                 'release_year' => '1994',
                 'actors' => ['Matthew Broderick', 'James Earl Jones', 'Jeremy Irons'],
                 'category' => 'Animation, Adventure, Drama',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/a/a7/The_Lion_King_1994_film_poster.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg'
             ],
             [
                 'title' => 'Forrest Gump',
@@ -81,7 +81,7 @@ class MovieController extends Controller
                 'release_year' => '1994',
                 'actors' => ['Tom Hanks', 'Robin Wright', 'Gary Sinise'],
                 'category' => 'Drama, Romance',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/h5J4W4veyxMXDMjeNxZI46TsHOb.jpg'
             ],
             [
                 'title' => 'The Shawshank Redemption',
@@ -89,7 +89,7 @@ class MovieController extends Controller
                 'release_year' => '1994',
                 'actors' => ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
                 'category' => 'Drama',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg'
+                'image' => 'https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg'
             ]
         ];
     }
@@ -118,6 +118,10 @@ class MovieController extends Controller
     //    ]);
     }
 
+    public function create() {
+        return view('movies.create');
+    }
+
     public function show($id)
     {
         $movies = $this->movies[$id];
@@ -125,15 +129,19 @@ class MovieController extends Controller
         return view('movies.show', ['movies' => $movies]);
     }
 
-    public function store() 
+    public function store( Request $request) 
     {
-        $this->movies[] = [
-            'title'    => request('title'),
-            'year'     => request('year'),
-            'genre'    => request('genre')
-        ];
+       $newMovie = [
+            'title' => $request['title'],
+            'description'   => $request['description'],
+            'release_year'  => $request['release_year'],
+            'actors' => explode(',', $request->actors),
+            'category' => $request->category,
+            'image'     => $request['image']
+       ];   
 
-        return $this->movies;
+       $this->movies[] = $newMovie;
+        return $this->index();
     }
 
     public function update(Request $request, $id) 

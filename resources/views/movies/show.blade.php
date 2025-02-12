@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Movie Show</title>
-</head>
-<body>
-    <h1>Movie</h1>
+@extends('app')
 
-    <ul>
-        <?php foreach ($menu as $key => $value) : ?>
-        <li><a href="<?php echo $value;?>"><?php echo $key;?></a></li>
-        <?php endforeach;?>
-    </ul>
+@section('content')
+<div class="flex flex-col md:flex-row items-start">
+    <div class="w-full md:w-1/3">
+        <img src="{{ $movies['image'] }}" alt="{{ $movies['title'] }}" class="rounded-lg shadow-lg w-full h-auto object-cover">
+    </div>
+    <div class="md:ml-10 mt-5 w-full md:w-2/3">
+        <h2 class="text-4xl font-bold mb-4">{{ $movies['title'] }}</h2>
+        <p class="text-gray-600 text-lg mb-2">{{ $movies['release_year'] }}</p>
+        <p class="text-gray-700">{{ $movies['description'] }}</p>
+        
+        <h3 class="text-xl font-semibold mt-4">Kategori</h3>
+        <p class="text-gray-700">{{ $movies['category'] }}</p>
 
-    <h1>{{ $title }}</h1>
-    {{ dd($movies) }}
 
-</body>
-</html>
+        <h3 class="text-xl font-semibold mt-4">Pemeran</h3>
+        <p class="text-gray-700">
+            @foreach ($movies['actors'] as $actors)
+                {{ $actors }}
+            @endforeach
+        </p>
+        <h3 class="text-xl font-semibold mt-4">Genre</h3>
+        <p class="text-gray-700"> {{ $movies['category'] }}</p>
+
+        <div class="mt-6 flex space-x-4">
+            <button class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Watch</button>
+            <button class="bg-gray-500 text-white px-6 py-3 rounded hover:bg-gray-700 transition">Back</button>
+        </div>
+    </div>
+</div>
+
+@endsection

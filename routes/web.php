@@ -14,7 +14,8 @@ Route::get('/movie/{id}', [MovieController::class, 'show'])->name('show');
 
 // CRUD Movie
 Route::post('/movie/', [MovieController::class, 'store'])->name('store');
-Route::match(['put', 'patch'], '/movie/{id}', [MovieController::class, 'update']);
+Route::get('/movie/{id}/edit', [MovieController::class, 'edit'])->name('edit');
+Route::match(['put', 'patch'], '/movie/{id}', [MovieController::class, 'update'])->name('update');
 Route::delete('/movie/{id}', [MovieController::class, 'destroy']);
 
 
@@ -110,5 +111,8 @@ Route::get('/external', function() {
 });
 
 
-// View
+Route::get('/session', function( Request $request) {
+    session(['days' => ['senin', 'selasa', 'rabu', 'kamis', 'jumat','sabtu','minggu']]);
+   return $request->session()->all();
+});
 

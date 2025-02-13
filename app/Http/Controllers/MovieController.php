@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMovieRequest;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -126,11 +127,14 @@ class MovieController extends Controller
     {
         $movies = $this->movies[$id];
 
-        return view('movies.show', ['movies' => $movies]);
+        return view('movies.show', ['movies' => $movies, 'movieId' => $id]);
     }
 
-    public function store( Request $request) 
+    public function store( StoreMovieRequest $request) 
     {
+
+       
+
        $newMovie = [
             'title' => $request['title'],
             'description'   => $request['description'],
@@ -144,16 +148,26 @@ class MovieController extends Controller
         return $this->index();
     }
 
+    public function edit($id) {
+        $movie = $this->movies[$id];
+        $movie['actors'] = implode(',', $movie['actors']);
+
+        return view('movies.edit', ['movie' => $movie, 'movieId' => $id]);
+    }
+
     public function update(Request $request, $id) 
     {
-        // $this->movies[$id]['title'] = request('title');
-        // $this->movies[$id]['year'] = request('year');
-        // $this->movies[$id]['genre'] = request('title');
+        $this->movies['id']['title'] = $request['title'];
+        $this->movies['id']['description'] = $request['description'];
+        $this->movies['id']['release_year'] = $request['release_year'];
+        $this->movies['id']['actors'] = $request['actors'];
+        $this->movies['id']['category'] = $request['category'];
+        $this->movies['id']['image'] = $request['image'];
 
-        // return $this->movies[$id];
-
-        return $request->all();
+        return $this->show($id);
+        
     }
+
 
     public function destroy($id) 
     {

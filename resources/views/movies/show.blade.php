@@ -24,8 +24,8 @@
         <p class="text-gray-700"> {{ $movies['category'] }}</p>
 
         <div class="mt-6 flex space-x-4">
-            <button class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Watch</button>
-            <button class="bg-gray-500 text-white px-6 py-3 rounded hover:bg-gray-700 transition">Back</button>
+            <a href="{{ route('edit', $movieId )}}"><button class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Edit</button></a>
+            <button class="bg-gray-500 text-white px-6 py-3 rounded hover:bg-gray-700 transition">Delete</button>
         </div>
     </div>
 </div>

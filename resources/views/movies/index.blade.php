@@ -12,8 +12,8 @@
                     <p class="text-sm mb-1 truncate">{{ $movie['release_year'] }}</p>
                     <p class="text-sm mb-2 truncate">{{ $movie['category'] }}</p>
                     <div class="flex justify-between mt-2">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Watch</button>
-                        <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 transition">Details</button>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Edit</button>
+                        <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 transition">Delete</button>
                     </div>
                 </div>
             </div>
